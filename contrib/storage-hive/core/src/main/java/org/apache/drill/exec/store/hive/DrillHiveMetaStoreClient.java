@@ -21,6 +21,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
+import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
 import org.apache.drill.common.exceptions.DrillRuntimeException;
 import org.apache.drill.common.exceptions.UserException;
 import org.apache.drill.exec.util.ImpersonationUtil;
@@ -122,6 +123,7 @@ public abstract class DrillHiveMetaStoreClient extends HiveMetaStoreClient {
         }
       });
     } catch (final Exception e) {
+      logger.info("%s", e);
       throw new DrillRuntimeException("Failure setting up HiveMetaStore client.", e);
     }
   }
